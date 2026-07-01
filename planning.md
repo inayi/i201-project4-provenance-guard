@@ -432,3 +432,42 @@ CREATE TABLE IF NOT EXISTS creators (
     attestation     TEXT NOT NULL    -- the creator's signed human-authorship oath
 );
 ```
+
+---
+
+## AI Tool Plan
+
+This section identifies, up front, where AI code-generation tools will be used and
+exactly what parts of this planning document will be fed to them as input, so the
+generated code can be verified against the spec rather than trusted blindly.
+
+### Milestone 4 — second signal + confidence scoring
+- **What the AI will generate:** (1) the second detection signal (the stylometric
+  *repetition* function), and (2) the confidence-scoring / ensemble-fusion logic that
+  combines the signals into a single `p_ai` and maps it to a label category.
+- **Inputs provided to the AI:** §2 (Detection Signals & Calibration — the fusion
+  formula `p_ai = 0.50·llm + 0.25·burstiness + 0.25·repetition` and per-signal
+  definitions), §3 (Uncertainty Representation & Thresholds — the exact `≥0.80 /
+  0.40–0.80 / <0.40` cutoffs), and the §1 Architecture diagram (so the function
+  signatures fit the pipeline's data flow).
+- **Verification step:** confirm the generated scorer uses the *asymmetric* thresholds
+  from §3 — AI tools tend to implement symmetric cutoffs around 0.5, which would silently
+  break the false-positive protection. Any divergence is corrected before wiring in.
+
+### Milestone 5 — production layer (labels + appeals)
+- **What the AI will generate:** (1) the label-generation function mapping a score to the
+  correct transparency-label text, and (2) the `POST /appeal` endpoint.
+- **Inputs provided to the AI:** §4 (Transparency Label Design — the verbatim text of all
+  three variants), §5 (Appeals Workflow — the data contract, state mutation, and moderator
+  view), and the §1.2 Appeal-flow diagram.
+- **Verification step:** ask the AI to emit all three label variants and confirm the text
+  matches §4 exactly; confirm the appeal handler mutates only `status` +
+  `appeal_reasoning` and never overwrites the original decision.
+
+### Milestone 6 / stretch — image-metadata pipeline
+- **What the AI will generate:** the `evaluate_image_metadata()` signal set for the
+  multi-modal stretch feature.
+- **Inputs provided to the AI:** §7.4 (the image signal list and weights) and the §1
+  Architecture diagram (to reuse the same threshold/label mapping as text).
+- **Verification step:** confirm image decisions reuse the *same* thresholds and label
+  text as the text pipeline, so confidence semantics stay identical across modalities.
