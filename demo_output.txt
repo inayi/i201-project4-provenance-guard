@@ -1,0 +1,399 @@
+
+==== 1a. Human submission (expect likely_human) ====
+{
+  "attribution": "likely_human",
+  "confidence": 0.8194,
+  "content_id": "deb00730-8566-4200-b46e-d9a83ab23565",
+  "content_type": "text",
+  "creator_id": "demo",
+  "final_p_ai": 0.1806,
+  "label": "✍️ Likely human-written. Our analysis found no strong signs of AI generation. This is an automated estimate, not a guarantee of authorship.",
+  "signals": {
+    "burstiness": 0.3224,
+    "llm": 0.2,
+    "repetition": 0.0
+  },
+  "status": "classified",
+  "weights": {
+    "burstiness": 0.25,
+    "llm": 0.5,
+    "repetition": 0.25
+  }
+}
+
+==== 1b. AI submission (expect likely_ai) ====
+{
+  "attribution": "likely_ai",
+  "confidence": 0.9349,
+  "content_id": "394ae747-ddf7-46e7-88df-aa8486c7cddf",
+  "content_type": "text",
+  "creator_id": "demo",
+  "final_p_ai": 0.9349,
+  "label": "🤖 Likely AI-generated. Our analysis suggests this content was probably produced with the help of an AI tool. This is an automated estimate, not a certainty. The creator can appeal this label.",
+  "signals": {
+    "burstiness": 1.0,
+    "llm": 0.99,
+    "repetition": 0.7596
+  },
+  "status": "classified",
+  "weights": {
+    "burstiness": 0.25,
+    "llm": 0.5,
+    "repetition": 0.25
+  }
+}
+
+==== 2. Appeal the AI decision (status -> under_review) ====
+{
+  "appeal_reasoning": "I wrote this intentionally as experimental repetitive verse.",
+  "content_id": "394ae747-ddf7-46e7-88df-aa8486c7cddf",
+  "message": "Your appeal has been logged. This content is now under review.",
+  "original_attribution": "likely_ai",
+  "original_confidence": 0.9349,
+  "status": "under_review"
+}
+
+==== 3. Multi-modal: image metadata (expect likely_ai) ====
+{
+  "attribution": "likely_ai",
+  "confidence": 0.955,
+  "content_id": "c1d4539d-d76f-4610-aa21-b329ea97da15",
+  "content_type": "image_metadata",
+  "creator_id": "demo",
+  "final_p_ai": 0.955,
+  "label": "🤖 Likely AI-generated. Our analysis suggests this content was probably produced with the help of an AI tool. This is an automated estimate, not a certainty. The creator can appeal this label.",
+  "signals": {
+    "c2pa_provenance": 1.0,
+    "generation_prompt": 1.0,
+    "generation_software": 1.0,
+    "missing_camera_exif": 0.7
+  },
+  "status": "classified",
+  "weights": {
+    "c2pa_provenance": 0.15,
+    "generation_prompt": 0.3,
+    "generation_software": 0.4,
+    "missing_camera_exif": 0.15
+  }
+}
+
+==== 4. Audit log ====
+{
+  "entries": [
+    {
+      "appeal_reasoning": null,
+      "attribution": "likely_ai",
+      "burstiness_score": null,
+      "confidence": 0.955,
+      "content_id": "9505646b-3162-43e4-b2ae-f9c354427492",
+      "content_type": "image_metadata",
+      "creator_id": "artist1",
+      "final_p_ai": 0.955,
+      "llm_score": null,
+      "raw_text_snippet": "[image] software=midjourney v6, prompt=True, camera_exif=False, c2pa={'ai_generated': True}",
+      "repetition_score": null,
+      "signals_json": "{\"generation_software\": 1.0, \"generation_prompt\": 1.0, \"missing_camera_exif\": 0.7, \"c2pa_provenance\": 1.0}",
+      "status": "classified",
+      "timestamp": "2026-07-01T04:21:32.031Z",
+      "verified_creator": 0
+    },
+    {
+      "appeal_reasoning": null,
+      "attribution": "likely_human",
+      "burstiness_score": null,
+      "confidence": 1.0,
+      "content_id": "49e1d4cf-3ce9-4442-952f-e3ba1bfcac21",
+      "content_type": "image_metadata",
+      "creator_id": "artist2",
+      "final_p_ai": 0.0,
+      "llm_score": null,
+      "raw_text_snippet": "[image] software=n/a, prompt=False, camera_exif=True, c2pa={'camera_captured': True}",
+      "repetition_score": null,
+      "signals_json": "{\"generation_software\": 0.0, \"generation_prompt\": 0.0, \"missing_camera_exif\": 0.0, \"c2pa_provenance\": 0.0}",
+      "status": "classified",
+      "timestamp": "2026-07-01T04:21:32.385Z",
+      "verified_creator": 0
+    },
+    {
+      "appeal_reasoning": null,
+      "attribution": "likely_human",
+      "burstiness_score": 0.4762,
+      "confidence": 0.6559,
+      "content_id": "84992a39-ff2b-4cfa-99ea-eaa14fbba20e",
+      "content_type": "text",
+      "creator_id": "maya",
+      "final_p_ai": 0.3441,
+      "llm_score": 0.2,
+      "raw_text_snippet": "I burned the toast again. Twice. The alarm screamed. Cereal it is.",
+      "repetition_score": 0.5,
+      "signals_json": "{\"burstiness\": 0.4762, \"repetition\": 0.5, \"llm\": 0.2}",
+      "status": "classified",
+      "timestamp": "2026-07-01T04:21:34.877Z",
+      "verified_creator": 1
+    },
+    {
+      "appeal_reasoning": null,
+      "attribution": "likely_human",
+      "burstiness_score": 0.4762,
+      "confidence": 0.6559,
+      "content_id": "40288445-be15-44fb-bbdd-0935efd028d3",
+      "content_type": "text",
+      "creator_id": "maya",
+      "final_p_ai": 0.3441,
+      "llm_score": 0.2,
+      "raw_text_snippet": "I burned the toast again. Twice. The alarm screamed. Cereal it is.",
+      "repetition_score": 0.5,
+      "signals_json": "{\"burstiness\": 0.4762, \"repetition\": 0.5, \"llm\": 0.2}",
+      "status": "classified",
+      "timestamp": "2026-07-01T04:21:54.764Z",
+      "verified_creator": 1
+    },
+    {
+      "appeal_reasoning": null,
+      "attribution": "likely_human",
+      "burstiness_score": 0.3224,
+      "confidence": 0.8194,
+      "content_id": "469af3e3-23e6-4fd5-833d-dbc26203199b",
+      "content_type": "text",
+      "creator_id": "demo",
+      "final_p_ai": 0.1806,
+      "llm_score": 0.2,
+      "raw_text_snippet": "ok so i tried that ramen place downtown and honestly? underwhelming. broth was fine but WAY too salty. probably wont go back",
+      "repetition_score": 0.0,
+      "signals_json": "{\"burstiness\": 0.3224, \"repetition\": 0.0, \"llm\": 0.2}",
+      "status": "classified",
+      "timestamp": "2026-07-01T04:34:44.947Z",
+      "verified_creator": 0
+    },
+    {
+      "appeal_reasoning": null,
+      "attribution": "likely_human",
+      "burstiness_score": 0.3224,
+      "confidence": 0.8194,
+      "content_id": "2e25a15a-fefd-4667-809e-e9802978ae30",
+      "content_type": "text",
+      "creator_id": "demo",
+      "final_p_ai": 0.1806,
+      "llm_score": 0.2,
+      "raw_text_snippet": "ok so i tried that ramen place downtown and honestly? underwhelming. broth was fine but WAY too salty. probably wont go back",
+      "repetition_score": 0.0,
+      "signals_json": "{\"burstiness\": 0.3224, \"repetition\": 0.0, \"llm\": 0.2}",
+      "status": "classified",
+      "timestamp": "2026-07-01T04:35:02.234Z",
+      "verified_creator": 0
+    },
+    {
+      "appeal_reasoning": null,
+      "attribution": "likely_human",
+      "burstiness_score": 0.3224,
+      "confidence": 0.8194,
+      "content_id": "f83b4f2b-2200-446d-bd33-cd211e9545db",
+      "content_type": "text",
+      "creator_id": "demo",
+      "final_p_ai": 0.1806,
+      "llm_score": 0.2,
+      "raw_text_snippet": "ok so i tried that ramen place downtown and honestly? underwhelming. broth was fine but WAY too salty. probably wont go back",
+      "repetition_score": 0.0,
+      "signals_json": "{\"burstiness\": 0.3224, \"repetition\": 0.0, \"llm\": 0.2}",
+      "status": "classified",
+      "timestamp": "2026-07-01T04:38:48.461Z",
+      "verified_creator": 0
+    },
+    {
+      "appeal_reasoning": "I wrote this intentionally as experimental repetitive verse.",
+      "attribution": "likely_ai",
+      "burstiness_score": 1.0,
+      "confidence": 0.9349,
+      "content_id": "2ad3f3fb-4962-49b2-b91a-d8d6b1e13bbb",
+      "content_type": "text",
+      "creator_id": "demo",
+      "final_p_ai": 0.9349,
+      "llm_score": 0.99,
+      "raw_text_snippet": "The system is good. The system is fast. The system is reliable. The system is good. The system is fast. The system is reliable.",
+      "repetition_score": 0.7596,
+      "signals_json": "{\"burstiness\": 1.0, \"repetition\": 0.7596, \"llm\": 0.99}",
+      "status": "under_review",
+      "timestamp": "2026-07-01T04:38:50.97Z",
+      "verified_creator": 0
+    },
+    {
+      "appeal_reasoning": null,
+      "attribution": "likely_ai",
+      "burstiness_score": null,
+      "confidence": 0.955,
+      "content_id": "2519dbd3-5f1d-4948-a351-00cc47637b1d",
+      "content_type": "image_metadata",
+      "creator_id": "demo",
+      "final_p_ai": 0.955,
+      "llm_score": null,
+      "raw_text_snippet": "[image] software=midjourney v6, prompt=True, camera_exif=False, c2pa={'ai_generated': True}",
+      "repetition_score": null,
+      "signals_json": "{\"generation_software\": 1.0, \"generation_prompt\": 1.0, \"missing_camera_exif\": 0.7, \"c2pa_provenance\": 1.0}",
+      "status": "classified",
+      "timestamp": "2026-07-01T04:38:55.157Z",
+      "verified_creator": 0
+    },
+    {
+      "appeal_reasoning": null,
+      "attribution": "likely_human",
+      "burstiness_score": 0.3224,
+      "confidence": 0.8194,
+      "content_id": "20d4a3fc-8680-4a75-b829-03e17dfc979d",
+      "content_type": "text",
+      "creator_id": "demo",
+      "final_p_ai": 0.1806,
+      "llm_score": 0.2,
+      "raw_text_snippet": "ok so i tried that ramen place downtown and honestly? underwhelming. broth was fine but WAY too salty. probably wont go back",
+      "repetition_score": 0.0,
+      "signals_json": "{\"burstiness\": 0.3224, \"repetition\": 0.0, \"llm\": 0.2}",
+      "status": "classified",
+      "timestamp": "2026-07-01T04:43:53.975Z",
+      "verified_creator": 0
+    },
+    {
+      "appeal_reasoning": null,
+      "attribution": "likely_human",
+      "burstiness_score": 0.3224,
+      "confidence": 0.8194,
+      "content_id": "5408d8b6-9994-4e07-b5ca-189ca7bcbd31",
+      "content_type": "text",
+      "creator_id": "demo",
+      "final_p_ai": 0.1806,
+      "llm_score": 0.2,
+      "raw_text_snippet": "ok so i tried that ramen place downtown and honestly? underwhelming. broth was fine but WAY too salty. probably wont go back",
+      "repetition_score": 0.0,
+      "signals_json": "{\"burstiness\": 0.3224, \"repetition\": 0.0, \"llm\": 0.2}",
+      "status": "classified",
+      "timestamp": "2026-07-01T04:47:59.443Z",
+      "verified_creator": 0
+    },
+    {
+      "appeal_reasoning": null,
+      "attribution": "likely_human",
+      "burstiness_score": 0.3224,
+      "confidence": 0.8194,
+      "content_id": "44e73379-5cd8-4741-8bde-aa0d9a49a49f",
+      "content_type": "text",
+      "creator_id": "demo",
+      "final_p_ai": 0.1806,
+      "llm_score": 0.2,
+      "raw_text_snippet": "ok so i tried that ramen place downtown and honestly? underwhelming. broth was fine but WAY too salty. probably wont go back",
+      "repetition_score": 0.0,
+      "signals_json": "{\"burstiness\": 0.3224, \"repetition\": 0.0, \"llm\": 0.2}",
+      "status": "classified",
+      "timestamp": "2026-07-01T04:54:16.488Z",
+      "verified_creator": 0
+    },
+    {
+      "appeal_reasoning": "I wrote this intentionally as experimental repetitive verse.",
+      "attribution": "likely_ai",
+      "burstiness_score": 1.0,
+      "confidence": 0.9349,
+      "content_id": "f0106da4-6cf8-44b4-ab51-12574873af75",
+      "content_type": "text",
+      "creator_id": "demo",
+      "final_p_ai": 0.9349,
+      "llm_score": 0.99,
+      "raw_text_snippet": "The system is good. The system is fast. The system is reliable. The system is good. The system is fast. The system is reliable.",
+      "repetition_score": 0.7596,
+      "signals_json": "{\"burstiness\": 1.0, \"repetition\": 0.7596, \"llm\": 0.99}",
+      "status": "under_review",
+      "timestamp": "2026-07-01T04:54:19.032Z",
+      "verified_creator": 0
+    },
+    {
+      "appeal_reasoning": null,
+      "attribution": "likely_ai",
+      "burstiness_score": null,
+      "confidence": 0.955,
+      "content_id": "04990d21-55fc-49f0-a7c7-c86b0b26cb97",
+      "content_type": "image_metadata",
+      "creator_id": "demo",
+      "final_p_ai": 0.955,
+      "llm_score": null,
+      "raw_text_snippet": "[image] software=midjourney v6, prompt=True, camera_exif=False, c2pa={'ai_generated': True}",
+      "repetition_score": null,
+      "signals_json": "{\"generation_software\": 1.0, \"generation_prompt\": 1.0, \"missing_camera_exif\": 0.7, \"c2pa_provenance\": 1.0}",
+      "status": "classified",
+      "timestamp": "2026-07-01T04:54:23.206Z",
+      "verified_creator": 0
+    },
+    {
+      "appeal_reasoning": null,
+      "attribution": "likely_human",
+      "burstiness_score": 0.3224,
+      "confidence": 0.8194,
+      "content_id": "deb00730-8566-4200-b46e-d9a83ab23565",
+      "content_type": "text",
+      "creator_id": "demo",
+      "final_p_ai": 0.1806,
+      "llm_score": 0.2,
+      "raw_text_snippet": "ok so i tried that ramen place downtown and honestly? underwhelming. broth was fine but WAY too salty. probably wont go back",
+      "repetition_score": 0.0,
+      "signals_json": "{\"burstiness\": 0.3224, \"repetition\": 0.0, \"llm\": 0.2}",
+      "status": "classified",
+      "timestamp": "2026-07-01T04:58:58.199Z",
+      "verified_creator": 0
+    },
+    {
+      "appeal_reasoning": "I wrote this intentionally as experimental repetitive verse.",
+      "attribution": "likely_ai",
+      "burstiness_score": 1.0,
+      "confidence": 0.9349,
+      "content_id": "394ae747-ddf7-46e7-88df-aa8486c7cddf",
+      "content_type": "text",
+      "creator_id": "demo",
+      "final_p_ai": 0.9349,
+      "llm_score": 0.99,
+      "raw_text_snippet": "The system is good. The system is fast. The system is reliable. The system is good. The system is fast. The system is reliable.",
+      "repetition_score": 0.7596,
+      "signals_json": "{\"burstiness\": 1.0, \"repetition\": 0.7596, \"llm\": 0.99}",
+      "status": "under_review",
+      "timestamp": "2026-07-01T04:59:00.759Z",
+      "verified_creator": 0
+    },
+    {
+      "appeal_reasoning": null,
+      "attribution": "likely_ai",
+      "burstiness_score": null,
+      "confidence": 0.955,
+      "content_id": "c1d4539d-d76f-4610-aa21-b329ea97da15",
+      "content_type": "image_metadata",
+      "creator_id": "demo",
+      "final_p_ai": 0.955,
+      "llm_score": null,
+      "raw_text_snippet": "[image] software=midjourney v6, prompt=True, camera_exif=False, c2pa={'ai_generated': True}",
+      "repetition_score": null,
+      "signals_json": "{\"generation_software\": 1.0, \"generation_prompt\": 1.0, \"missing_camera_exif\": 0.7, \"c2pa_provenance\": 1.0}",
+      "status": "classified",
+      "timestamp": "2026-07-01T04:59:04.938Z",
+      "verified_creator": 0
+    }
+  ]
+}
+
+==== 5. Analytics dashboard ====
+{
+  "appeal_count": 3,
+  "appeal_rate": 0.1765,
+  "attribution_distribution": {
+    "likely_ai": 7,
+    "likely_human": 10,
+    "uncertain": 0
+  },
+  "avg_confidence": 0.8631,
+  "avg_signal_scores": {
+    "burstiness": 0.5174,
+    "llm": 0.3975,
+    "repetition": 0.2732
+  },
+  "modality_distribution": {
+    "image_metadata": 5,
+    "text": 12
+  },
+  "total_submissions": 17,
+  "uncertain_rate": 0.0,
+  "verified_creators": 1
+}
+
+Demo complete.
