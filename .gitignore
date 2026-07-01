@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+provenance_db.json
+provenance.db
+provenance.db-shm
+provenance.db-wal
+server.log
